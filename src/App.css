@@ -111,16 +111,21 @@
   align-items: center;
 }
 
+.title {
+  white-space: normal !important;
+  line-height: 1.5 !important;
+  justify-content: flex-end;
+  text-align: right;
+}
+
 .title_2 {
   font-weight: bold;
   font-size: 20px;
-  display: flex;
-  margin-left: 140px;
+  justify-content: left;
 }
 
 .title_3 {
   font-weight: bold;
   font-size: 18px;
-  display: flex;
-  margin-left: 150px;
+  justify-content: center;
 }

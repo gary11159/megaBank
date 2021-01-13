@@ -14,11 +14,11 @@ const data = [{
     'id': 0,
     'name': '其他綜合損益',
     'type': '2',
-},{
+}, {
     'id': 1,
     'name': '不重分類至損益之項目',
     'type': '3',
-},{
+}, {
     'id': 2,
     'type': '1',
     'num': 65201,
@@ -40,7 +40,34 @@ const data = [{
     'secondMoney': '($ 757,090)',
     'secondPercent': '(2)',
     'changePercent': '17',
-}]
+},{
+    'id': 4,
+    'name': '後續可能重分類至損益之項目',
+    'type': '3',
+}, {
+    'id': 5,
+    'type': '1',
+    'num': 65301,
+    'name': '國外營運機構財務報表換算之兌換差額',
+    'other': '六(二十六)',
+    'firstMoney': '( 771,311)',
+    'firstPercent': '(1)',
+    'secondMoney': '1,100,821',
+    'secondPercent': '(1)',
+    'changePercent': '(170)',
+},, {
+    'id': 6,
+    'type': '1',
+    'num': 65306,
+    'name': '採用權益法認列之關聯企業及合資之其他綜合損益之份額-可能重分類至損益之項目  ',
+    'other': '六(八)(二十六)',
+    'firstMoney': '21,269',
+    'firstPercent': '-',
+    'secondMoney': '( 33,551)',
+    'secondPercent': '-',
+    'changePercent': '( 163)',
+},
+]
 
 const baseDefaultColDef = {
     sortable: true,
@@ -163,7 +190,7 @@ const Table = () => {
                         <AgGridColumn field="" rowDrag={true} maxWidth={50} />
                         <AgGridColumn headerName="項目" field="project">
                             <AgGridColumn headerName="" field="num" />
-                            <AgGridColumn headerName="" field="name" cellStyle={{ 'white-space': 'normal', 'line-height': 1.5 }} autoHeight={true}/>
+                            <AgGridColumn headerName="" field="name" cellStyle={{ 'white-space': 'normal', 'line-height': 1.5 }} autoHeight={true} minWidth={300} />
                         </AgGridColumn>
                         <AgGridColumn headerName="附註" field="other" />
                         <AgGridColumn headerName="108年度" width={100}><AgGridColumn headerName="金額" field="firstMoney" />
@@ -194,16 +221,15 @@ const Table = () => {
             </div>
             <div className="outer" style={{ width: '90%', marginTop: '20px' }}>
                 <div style={{ width: '100%', height: "700px" }} className="inner-col ag-theme-alpine" onDragOver={gridDragOver} >
-                    <AgGridReact gridOptions={rightGridOptions} onGridReady={onRightGridReady} onColumnResized={onColumnResized}
-                        isFullWidthCell={function (rowNode) {
-                            return rowNode.data.type === '2' || rowNode.data.type === '3';
-                        }}
-                        fullWidthCellRenderer={fullWidthCellRenderer}
-                    >
+                    <AgGridReact gridOptions={rightGridOptions} onGridReady={onRightGridReady} onColumnResized={onColumnResized}>
                         <AgGridColumn field="" rowDrag={true} maxWidth={50} />
                         <AgGridColumn headerName="項目" field="project">
                             <AgGridColumn headerName="" field="num" />
-                            <AgGridColumn headerName="" field="name" cellStyle={{ 'white-space': 'normal', 'line-height': 1.5 }} autoHeight={true}/>
+                            <AgGridColumn headerName="" field="name" autoHeight={true} minWidth={300}
+                                cellClass={(params) => 
+                                    params.data.type === '1' ? ['title'] :  ['title', 'title_'+ params.data.type]
+                                }
+                            />
                         </AgGridColumn>
                         <AgGridColumn headerName="附註" field="other" />
                         <AgGridColumn headerName="108年度" width={100}><AgGridColumn headerName="金額" field="firstMoney" />
