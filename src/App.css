@@ -1,0 +1,126 @@
+* {
+  font-size: 14px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ag-header-group-cell-label {
+  justify-content: center;
+  align-items: center;
+}
+
+.ag-cell {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer {
+  display: flex;
+  height: 100%;
+}
+
+.inner-col {
+  width: 0;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.factory-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.factory {
+  padding: 10px;
+  margin: 10px;
+  flex-grow: 1;
+}
+
+.factory-red {
+  background-color: #ffdddd;
+  border: 1px solid #ff8888;
+}
+
+.factory-green {
+  background-color: #ddffdd;
+  border: 1px solid #88ff88;
+}
+
+.factory-blue {
+  background-color: #ddddff;
+  border: 1px solid #8888ff;
+}
+
+.factory-bin {
+  background-color: lightgray;
+  border: 1px solid #888888;
+}
+
+.green-row {
+  background-color: #ddffdd !important;
+}
+
+.red-row {
+  background-color: #ffdddd !important;
+}
+
+.blue-row {
+  background-color: #ddddff !important;
+}
+
+.ag-row {
+  display: flex;
+  align-items: center;
+}
+
+.title_2 {
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  margin-left: 140px;
+}
+
+.title_3 {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  margin-left: 150px;
+}
