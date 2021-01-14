@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { AgGridReact, AgGridColumn } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import Title from './title';
+import 'ag-grid-enterprise';
 
 const chooseData = [{
     'id': 10,
@@ -40,7 +42,7 @@ const data = [{
     'secondMoney': '($ 757,090)',
     'secondPercent': '(2)',
     'changePercent': '17',
-},{
+}, {
     'id': 4,
     'name': '後續可能重分類至損益之項目',
     'type': '3',
@@ -55,7 +57,7 @@ const data = [{
     'secondMoney': '1,100,821',
     'secondPercent': '(1)',
     'changePercent': '(170)',
-},, {
+}, , {
     'id': 6,
     'type': '1',
     'num': 65306,
@@ -116,7 +118,7 @@ const Table = () => {
         params.api.setRowData(chooseData);
         // 欄位自動適應
         params.api.sizeColumnsToFit();
-        // 設定DropZone
+        // 設定可以拉到的區域
         addGridDropZone(params, 'Right');
         setLeftGridApi(params.api);
     }
@@ -126,45 +128,16 @@ const Table = () => {
         params.api.setRowData(data);
         // 欄位自動適應
         params.api.sizeColumnsToFit();
-        // 設定DropZone
-        addGridDropZone(params, 'Left');
         setRightGridApi(params.api);
     }
 
     const gridDragOver = (event) => {
+        event.preventDefault();
         const dragSupported = event.dataTransfer.types.length;
-
         if (dragSupported) {
             event.dataTransfer.dropEffect = 'copy';
             event.preventDefault();
         }
-    };
-
-    function gridDrop(grid, event) {
-        event.preventDefault();
-        const userAgent = window.navigator.userAgent;
-        const isIE = userAgent.indexOf('Trident/') >= 0;
-        const jsonData = event.dataTransfer.getData(isIE ? 'text' : 'application/json');
-        const data = JSON.parse(jsonData);
-
-        // if data missing or data has no it, do nothing
-        if (!data || data.id == null) {
-            return;
-        }
-
-        const gridApi = grid === 'left' ? leftGridApi : rightGridApi;
-
-        // do nothing if row is already in the grid, otherwise we would have duplicates
-        const rowAlreadyInGrid = !!gridApi.getRowNode(data.id);
-        if (rowAlreadyInGrid) {
-            console.log('not adding row to avoid duplicates in the grid');
-            return;
-        }
-
-        const transaction = {
-            add: [data]
-        };
-        gridApi.applyTransaction(transaction);
     };
 
     // 自適應Row高度
@@ -172,19 +145,9 @@ const Table = () => {
         params.api.resetRowHeights();
     };
 
-    // 整行Render
-    const fullWidthCellRenderer = (params) => {
-        let cssClass;
-        let message;
-        cssClass = "title_" + params.data.type;
-        message = params.data.name;
-        const eDiv = document.createElement("div");
-        eDiv.innerHTML = "<div class=\"" + cssClass + "\"> " + message + "</div>";
-        return eDiv.firstChild;
-    };
     return (
         <>
-            <div className="outer" style={{ width: '90%', marginTop: '20px' }}>
+            {/* <div className="outer" style={{ width: '90%', marginTop: '20px' }}>
                 <div style={{ width: '100%', height: "300px" }} className="inner-col ag-theme-alpine">
                     <AgGridReact gridOptions={leftGridOptions} onGridReady={onLeftGridReady} onColumnResized={onColumnResized}>
                         <AgGridColumn field="" rowDrag={true} maxWidth={50} />
@@ -218,16 +181,34 @@ const Table = () => {
                         />
                     </AgGridReact>
                 </div>
-            </div>
-            <div className="outer" style={{ width: '90%', marginTop: '20px' }}>
-                <div style={{ width: '100%', height: "700px" }} className="inner-col ag-theme-alpine" onDragOver={gridDragOver} >
-                    <AgGridReact gridOptions={rightGridOptions} onGridReady={onRightGridReady} onColumnResized={onColumnResized}>
+            </div> */}
+            <Title />
+            <div className="outer" style={{ width: '90%' }}>
+                <div style={{ width: '100%', height: "700px" }} className="inner-col ag-theme-alpine" onDragOver={gridDragOver}>
+                    <AgGridReact gridOptions={rightGridOptions} onGridReady={onRightGridReady} onColumnResized={onColumnResized}
+                        sideBar={{
+                            toolPanels: [
+                                {
+                                    id: 'columns',
+                                    labelDefault: '欄位調整',
+                                    labelKey: 'columns',
+                                    iconKey: 'columns',
+                                    toolPanel: 'agColumnsToolPanel',
+                                    toolPanelParams: {
+                                        suppressRowGroups: true,
+                                        suppressValues: true,
+                                        suppressPivots: true,
+                                        suppressPivotMode: true,
+                                    },
+                                },
+                            ],
+                        }} >
                         <AgGridColumn field="" rowDrag={true} maxWidth={50} />
                         <AgGridColumn headerName="項目" field="project">
-                            <AgGridColumn headerName="" field="num" />
+                            <AgGridColumn headerName="" field="num" maxWidth={100}/>
                             <AgGridColumn headerName="" field="name" autoHeight={true} minWidth={300}
-                                cellClass={(params) => 
-                                    params.data.type === '1' ? ['title'] :  ['title', 'title_'+ params.data.type]
+                                cellClass={(params) =>
+                                    params.data.type === '1' ? ['title'] : ['title', 'title_' + params.data.type]
                                 }
                             />
                         </AgGridColumn>
