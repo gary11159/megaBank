@@ -3,6 +3,7 @@ import './App.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import Table from './components/table';
+import Table_2 from './components/table_2';
 import Logo from './public/logo.svg';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         </a>
       </div>
       <header className="App-header">
-        <Table/>
+        {/* <Table/> */}
+        <Table_2/>
       </header>
     </div>
   );
