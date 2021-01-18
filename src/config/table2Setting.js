@@ -1,40 +1,52 @@
 exports.colDefs = {
     dragButton: { id: 'dragButton', headerName: '', rowDrag: true, maxWidth: 50 },
-    assets: {
-        id: 'assets',
-        field: 'name',
-        headerName: '資產',
-        cellClass: (params) => {
-            return params.data.type === '6' ? ['title_6'] : ['titleInit', 'title_' + params.data.type]
+    project: {
+        id: 'project',
+        headerName: '項目',
+        children: [{
+            field: 'num',
+            headerName: '',
+            maxWidth: 70,
         },
+        {
+            field: 'name',
+            minWidth: 300,
+            maxWidth: 300,
+            autoHeight: true,
+            cellClass: (params) => {
+                return params.data.type === '1' ? ['title'] : ['titleInit', 'title_' + params.data.type]
+            },
+            headerName: '',
+        }]
     },
-    other: { id: 'other', field: 'other', headerName: '附註', maxWidth: 150, },
+    other: { id: 'other', field: 'other', headerName: '附註', maxWidth: 100, },
     firstYear: {
         id: 'firstYear',
-        headerName: '108 年 12 月 31 日',
+        headerName: '108年度',
         children: [{
             field: 'firstMoney',
-            maxWidth: 200,
+            maxWidth: 150,
             headerName: '金額',
         }, {
             field: 'firstPercent',
-            maxWidth: 200,
+            maxWidth: 150,
             headerName: '%'
         }]
     },
     secondYear: {
         id: 'secondYear',
-        headerName: '107 年 12 月 31 日',
+        headerName: '107年度',
         children: [{
             field: 'secondMoney',
             headerName: '金額',
-            maxWidth: 200,
+            maxWidth: 150,
         }, {
             field: 'secondPercent',
             headerName: '%',
-            maxWidth: 200,
+            maxWidth: 150,
         }]
     },
+    changePercent: { id: 'changePercent', field: 'changePercent', headerName: '變動百分比%', maxWidth: 200, minWidth: 150 },
     removeButton: {
         id: 'removeButton',
         headerName: '',
