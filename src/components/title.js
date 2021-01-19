@@ -23,7 +23,7 @@ const Title = (props) => {
                 }
                 {props.from !== 4 ?
                     <div>民國 108 年及 107 年 1 月 1 日至 12 月 31 日</div>
-                    : <div>民 國 108 年 度 及 10 7 年 度</div>
+                    : <div>民 國 108 年 度 及 107 年 度</div>
                 }
 
             </div>

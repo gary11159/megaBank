@@ -15,7 +15,7 @@ const Other2 = (props) => {
                 </Row>
                 <Row style={{marginTop: '10px'}}>
                     <Col xs={{ span: 10, offset: 1 }} >
-                        <p contenteditable="true">
+                        <p contentEditable={true} suppressContentEditableWarning={true}>
                             本 合 併 財 務 報 告 已 於 民 國 109 年 3 月 1 3 日 經 董 事 會 通 過 發 佈。
                         </p>
                     </Col>

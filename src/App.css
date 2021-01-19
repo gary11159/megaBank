@@ -162,7 +162,7 @@
   padding: 15px 20px 0 20px;
 }
 
-.headerRow:not([class*="MuiButton"]) ::after {
+.headerRow:after {
   content: '';
   display: block;
   position: absolute;
@@ -252,4 +252,29 @@
 
 .col-md-7.offset-md-1 {
   text-align: left;
+}
+
+td, th {
+  border: 3px solid black;
+}
+
+.col {
+  flex-grow: 0 !important;
+}
+
+.out {
+  border-top: 40px #D6D3D6 solid;
+  /*上邊框寬度等於表格第一行行高*/
+  width: 0px;
+  /*讓容器寬度為0*/
+  height: 0px;
+  /*讓容器高度為0*/
+  border-left: 80px #BDBABD solid;
+  /*左邊框寬度等於表格第一行第一格寬度*/
+  position: relative;
+  /*讓裡面的兩個子容器絕對定位*/
+}
+
+.splitLine {
+  background-image: linear-gradient( to top right, white 48%, black, white 52%);
 }
