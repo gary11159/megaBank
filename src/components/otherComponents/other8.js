@@ -139,7 +139,7 @@ const Other8 = (props) => {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col style={{ marginLeft: '2.5%', paddingRight: 0 }}>
+                                    <Col style={{ marginLeft: '2.5%', paddingRight: 0, flexGrow: 0 }}>
                                         <p contentEditable={true} suppressContentEditableWarning={true}>
                                             a.
                                         </p>
@@ -166,7 +166,7 @@ const Other8 = (props) => {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col style={{ marginLeft: '2.5%', paddingRight: 0 }}>
+                                    <Col style={{ marginLeft: '2.5%', paddingRight: 0, flexGrow: 0 }}>
                                         <p contentEditable={true} suppressContentEditableWarning={true}>
                                             b.
                                         </p>

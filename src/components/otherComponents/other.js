@@ -10,6 +10,14 @@ import Other5 from './other5';
 import Other7 from './other7';
 import Other8 from './other8';
 import Other9 from './other9';
+import Other10 from './other10';
+import Other11 from './other11';
+import Other12 from './other12';
+import Other13 from './other13';
+import Other14 from './other14';
+import Other15 from './other15';
+import Other16 from './other16';
+import Other17 from './other17';
 
 const Other = (props) => {
 
@@ -61,6 +69,14 @@ const Other = (props) => {
             <Other7/>
             <Other8/>
             <Other9/>
+            <Other10/>
+            <Other11/>
+            <Other12/>
+            <Other13/>
+            <Other14/>
+            <Other15/>
+            <Other16/>
+            <Other17/>
         </>
     )
 

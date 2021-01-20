@@ -258,10 +258,6 @@ td, th {
   border: 3px solid black;
 }
 
-.col {
-  flex-grow: 0 !important;
-}
-
 .out {
   border-top: 40px #D6D3D6 solid;
   /*上邊框寬度等於表格第一行行高*/
@@ -277,4 +273,28 @@ td, th {
 
 .splitLine {
   background-image: linear-gradient( to top right, white 48%, black, white 52%);
+}
+
+.col-2-5 {
+  flex: 0 0 18.333333%;
+  max-width: 18.333333%;
+}
+
+.col-1-5 {
+  flex: 0 0 12.333333%;
+  max-width: 12.333333%;
+}
+
+.col-1-5-1 {
+  flex: 0 0 14.3%;
+  max-width: 14.3%;
+}
+
+.offset-md-1-5 {
+  margin-left: 12.333333%;
+}
+
+.col-md-10-5 {
+  flex: 0 0 86.8%;
+  max-width: 86.8%;
 }

@@ -242,13 +242,64 @@ const Other9 = (props) => {
                                     <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
                                         本表應列示如下之計算公式：
                                         <Row>
-                                            <Col xs={1} style={{ padding: 0 }}>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
                                                 (1)
                                             </Col>
                                             <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
                                                 自有資本＝普通股權益＋其他第一類資本＋第二類資本。
                                             </Col>
                                         </Row>
+                                        <Row>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
+                                                (2)
+                                            </Col>
+                                            <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                                加權風險性資產總額＝信用風險加權風險性資產＋（作業風險＋市場風險）之資本計提×
+                                                12.5。
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
+                                                (3)
+                                            </Col>
+                                            <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                                資本適足率＝自有資本／加權風險性資產總額。
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
+                                                (4)
+                                            </Col>
+                                            <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                                普通股權益占風險性資產之比率＝普通股權益／加權風險性資產總額。
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
+                                                (5)
+                                            </Col>
+                                            <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                                第一類資本占風險性資產之比率＝(普通股權益+其他第一類資本)／加權風險性資產總額。
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{ padding: 0, marginRight: '2%' }}>
+                                                (6)
+                                            </Col>
+                                            <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                                槓桿比率=第一類資本/暴險總額。
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col xs={11} style={{ marginLeft: '3%', marginTop: '20px' }}>
+                                <Row>
+                                    <Col xs={1} style={{ padding: 0 }}>
+                                        註 4：
+                                    </Col>
+                                    <Col xs={11} style={{ textAlign: 'left', padding: 0 }}>
+                                        本表於編製第一季及第三季報告得免予揭露。
                                     </Col>
                                 </Row>
                             </Col>
